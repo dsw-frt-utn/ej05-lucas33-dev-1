@@ -28,6 +28,10 @@ public class VehiculoCombustible: Vehiculo
 
     public override double CalcularConsumo(double kilometros)
     {
-        return kilometros * kilometrosPorLitro;
+        double extras = 2026 - GetAnio() > 5 ? (kilometros / 15) * litrosExtra : 0;
+
+        double total = (kilometros / kilometrosPorLitro) + extras;
+
+        return total;
     }
 }
